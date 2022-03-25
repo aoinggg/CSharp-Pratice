@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="800" x:Name="_myWindow">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+            <Button x:Name="Start" Width="100" Content="Start" Click="Start_Click"/>
+            <Button x:Name="Stop" Width="100" Content="Stop" Margin="10,0" Click="Stop_Click"/>
+        </StackPanel>        
+        <local:UserControl1 x:Name="_myUserControl" Grid.Row="1" Grid.Column="1" 
+                            DisplayLineWidth="500" DisplayxLabelInterval="100" ReFreshInterval="10"                            
+                            yValue="{Binding ElementName=mySlider, Path=Value}"/>
+        <Slider x:Name="mySlider" Grid.Row="1" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center"
+                Minimum="0" Maximum="200"/>
+    </Grid>
+</Window>
